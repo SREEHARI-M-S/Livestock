@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Welcome To LiveStock!</h1>
+      <p>An online database for Livestocks</p>
+      <p>
+        <a class="btn btn-primary btn-large" href="/animals/new"
+          >Add New LiveStock</a
+        >
+      </p>
+      <form style="float: right;" class="form-inline md-form form-sm ">
+        <input
+          class="form-control form-control-sm mr-3 w-75"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </form>
+    </div>
+  </header>
+
+  <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+    <% animals.forEach(function(animal){ %>
+    <div class="col-md-3 col-sm-6">
+      <div class="thumbnail">
+        <img src="<%= animal.image %>" />
+        <div class="caption">
+          <h4><%= animal.name %></h4>
+        </div>
+        <p>
+          <a href="/animals/<%= animal._id %>" class="btn btn-primary"
+            >More Info</a
+          >
+        </p>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+
+<% include ../partials/footer %>
